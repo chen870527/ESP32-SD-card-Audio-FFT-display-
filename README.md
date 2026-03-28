@@ -27,10 +27,10 @@ We used a **Dual-core** setup here. Core 0 handles the high-priority I/O tasks l
 
 ## Key Features
 
-*   **No more lagging**: Thanks to the FreeRTOS dual-core setup and our custom **Lock-Free Ring Buffer**, the audio stream never stutters, avoiding latency caused by traditional Mutex context switching.
-*   **Hardware Bus Isolation**: The ST7789 screen and the SD card are physically separated onto the `VSPI` and `HSPI` buses, totally eliminating bandwidth contention.
-*   **Delta Rendering**: Instead of clearing the entire screen every frame, we calculate the exact difference and update only the modified bars. This slashes the SPI data overhead by over 90% and unlocks ultra-smooth frame rates.
-*   **Psychoacoustic Mapping**: Tailored for human hearing, shedding useless high-frequency bins and applying a logarithmic gain algorithm to the visualization, resulting in a much more dynamic and immersive UX.
+*   **Hardware Bus Isolation**: Utilized dedicated HSPI and VSPI hardware to independently drive the TFT screen and SD card. This completely eliminates bus contention and ensures zero-collision data transfers.
+*   **OS-Level Separation**: Leveraged FreeRTOS to pin time-critical I/O tasks (SD reading and I2S amplifier) to Core 0, while moving heavy mathematical operations (FFT) and screen rendering to Core 1.
+*   **Lock-Free Ring Buffer**: Instead of relying on traditional Mutex locks for sharing audio data (which cause context switch delays), we wrote a custom lock-free ring buffer from scratch for an ultra-fast Producer-Consumer pattern.
+*   **Delta Rendering Algorithm**: When drawing the audio spectrum, we record the previous frame's bar heights and only redraw the exact areas that changed. This localized update replaces traditional full-screen refreshes and slashes SPI data overhead by over 90% per frame.
 
 ---
 
