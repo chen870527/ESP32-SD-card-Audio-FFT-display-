@@ -1,5 +1,7 @@
 # ESP32 Dual-Core Audio Spectrum Visualizer
 
+Independently developed a high-performance, real-time audio processing system based on the ESP32, integrating I2S digital audio output, FFT spectrum analysis, and high-FPS SPI display rendering. Implemented a dual-core heterogeneous parallel architecture using FreeRTOS to ensure seamless, stutter-free audio playback even during complex DSP computations.
+
 A professional, high-performance real-time audio visualizer utilizing the ESP32. This project solves the common stuttering and lag issues in audio playback by implementing a strict dual-core FreeRTOS architecture, hardware SPI isolation, and a custom lock-free ring buffer.
 
 ---
