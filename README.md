@@ -18,10 +18,10 @@ The ST7789 SPI LCD displays a fluid, 32-band audio spectrum perfectly synced wit
 We used a **Dual-core** setup here. Core 0 handles the high-priority I/O tasks like reading the SD card and continuously feeding the I2S audio amplifier, while Core 1 performs the heavy DSP (Fast Fourier Transform) and graphical rendering. This keeps the audio playing smoothly without any interruptions.
 
 ### 1. Dual-Core Task Management
-![Dual Core System Architecture](./images/architecture.jpg)
+![Dual Core System Architecture](./images/architecture.png)
 
 ### 2. Memory Allocation & Optimization
-![Memory Allocation](./images/memory_layout.jpg)
+![Memory Allocation](./images/memory_layout.png)
 
 ---
 
