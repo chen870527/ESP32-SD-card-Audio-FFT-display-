@@ -8,7 +8,6 @@ A professional, high-performance real-time audio visualizer utilizing the ESP32.
 
 ### 1. Real-time Audio Visualizer
 The ST7789 SPI LCD displays a fluid, 32-band audio spectrum perfectly synced with the music read from the SD card.
-*(Note: You can replace this placeholder with a photo or GIF of the running device)*
 ![Dashboard](./images/dashboard.jpg)
 
 ---
